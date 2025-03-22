@@ -6,7 +6,9 @@ echo 1 topgrade
 topgrade --version > %DATA%\1-topgrade.txt
 echo 2 wsl
 wsl --version > %DATA%\2-wsl.txt
+type %DATA%\2-wsl.txt | iconv -t UTF-8 -f UTF-16LE > a.txt && mv a.txt %DATA%\2-wsl.txt
 wsl -l -v > %DATA%\2b-wsl.txt
+type %DATA%\2b-wsl.txt | iconv -t UTF-8 -f UTF-16LE > a.txt && mv a.txt %DATA%\2b-wsl.txt
 echo 3 choco
 choco --version > %DATA%\3-choco.txt
 choco list > %DATA%\3b-choco.txt
