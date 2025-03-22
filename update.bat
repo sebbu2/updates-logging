@@ -1,5 +1,6 @@
 @echo off
 cd /d "~dp0"
+set PWD=%CD%
 set DATA=%CD%\data
 echo 1 topgrade
 topgrade --version > %DATA%\1-topgrade.txt
@@ -50,13 +51,17 @@ C:\dev\Python38\python.exe -m pip --version > %DATA%\16-pip.txt
 C:\dev\Python38\python.exe -m pip list --user pip > %DATA%\16a-pip.txt
 C:\dev\Python38\python.exe -m pip list > %DATA%\16b-pip.txt
 echo 17 npm
+cd /D %USERPROFILE%
 call npm --version > %DATA%\17-npm.txt
 call npm list > %DATA%\17a-npm.txt
 call npm list -g > %DATA%\17b-npm.txt
+cd /D %PWD%
 echo 18 pnpm
+cd /D %USERPROFILE%
 call pnpm --version > %DATA%\18-pnpm.txt
 call pnpm list > %DATA%\18a-pnpm.txt 2>&1
 call pnpm list -g > %DATA%\18b-pnpm.txt 2>&1
+cd /D %PWD%
 echo 19 github cli ext
 gh --version > %DATA%\19-gh.txt
 gh extensions list > %DATA%\19b-gh.txt
