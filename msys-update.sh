@@ -3,4 +3,5 @@
 pacman -Qe &> /Documents/updates/zz-1a-msys2-pacman-qe.txt
 pacman -Qd &> /Documents/updates/zz-1b-msys2-pacman-qd.txt
 pacman -Q &> /Documents/updates/zz-1c-msys2-pacman-q.txt
+gem list -l -a &> /Documents/updates/zz-1d-gem-list.txt
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-git add -A
+dos2unix -f *
+git add [1-9]*
 git diff --cached > changelog.txt
 
