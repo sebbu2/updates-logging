@@ -78,3 +78,4 @@ powershell Get-Module > %DATA%\21a-powershell.txt
 pwsh -command $PSVersionTable > %DATA%\21b-pwsh.txt
 pwsh -command Get-Module > %DATA%\21c-pwsh.txt
 echo done
+dos2unix -q -f *
