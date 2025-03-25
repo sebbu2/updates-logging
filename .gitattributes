@@ -1,0 +1,4 @@
+# ignore generation scripts when diff-ing
+*.sh -diff
+*.bat -diff
+

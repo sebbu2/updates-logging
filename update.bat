@@ -17,9 +17,9 @@ call scoop --version > %DATA%\4-scoop.txt
 call scoop list > %DATA%\4b-scoop.txt
 echo 5 winget
 winget --version > %DATA%\5-winget.txt
-winget list --include-unknown > %DATA%\5b-winget.txt
+winget list > %DATA%\5b-winget.txt
 echo 6 windows (system)
-ver > 6-windows.txt
+ver > %DATA%\6-windows.txt
 call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\6b-windows-update.txt
 rem echo 7 microsoft store
 rem 7 microsoft store
@@ -78,4 +78,7 @@ powershell Get-Module > %DATA%\21a-powershell.txt
 pwsh -command $PSVersionTable > %DATA%\21b-pwsh.txt
 pwsh -command Get-Module > %DATA%\21c-pwsh.txt
 echo done
-dos2unix -q -f *
+cd %PWD%
+dos2unix -q -f 1* 2* 3* 4* 5* 6* 7* 8* 9*
+git add --ignore-errors 1* 2* 3* 4* 5* 6* 7* 8* 9*
+
