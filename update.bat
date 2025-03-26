@@ -80,5 +80,5 @@ pwsh -command Get-Module > %DATA%\21c-pwsh.txt
 echo done
 cd %PWD%
 dos2unix -q -f 1* 2* 3* 4* 5* 6* 7* 8* 9*
-git add --ignore-errors 1* 2* 3* 4* 5* 6* 7* 8* 9*
+git add --ignore-errors 1* 2* 3* 4* 5* 6* 8* 9*
 

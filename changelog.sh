@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-git diff --cached -U0 > changelog.txt
+git diff --shortstat --cached HEAD@{yesterday} -- '*.sh' '*.bat' '.git*'
+git diff --shortstat --cached -- ':!*.sh' ':!*.bat' ':!.git*' ':!changelog*' '*'
+git diff --cached -U0 -- ':!*.sh' ':!*.bat' ':!.git*' ':!changelog*' '*' > changelog.txt
 
