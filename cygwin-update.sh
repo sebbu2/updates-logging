@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-(uname -a && cat /proc/version ) > /Documents/updates/zz-2-cygwin.txt
-cygcheck -c -d > /Documents/updates/zz-2b-cygcheck.txt
-gem list -l -a > /Documents/updates/zz-2c-gem-list.txt
-( cd /Documents/updates && git add zz-2* )
-dos2unix -q -f /Documents/updates/zz-2*
+DIR=`dirname -- "$( readlink -f -- "$0"; )"`
+DATA=${DIR}/data
+(uname -a && cat /proc/version ) > ${DATA}/zz-2-cygwin.txt
+cygcheck -c -d > ${DATA}/zz-2b-cygcheck.txt
+gem list -l -a > ${DATA}/zz-2c-gem-list.txt
+( cd "${DATA}" && git add zz-2* )
+dos2unix -q -f ${DATA}/zz-2*
 

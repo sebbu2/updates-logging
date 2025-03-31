@@ -1,5 +1,6 @@
 @echo off
-cd /d "~dp0"
+set OLDDIR=%CD%
+cd /d "%~dp0"
 set PWD=%CD%
 set DATA=%CD%\data
 echo 1 topgrade
@@ -78,7 +79,8 @@ powershell Get-Module > %DATA%\21a-powershell.txt
 pwsh -command $PSVersionTable > %DATA%\21b-pwsh.txt
 pwsh -command Get-Module > %DATA%\21c-pwsh.txt
 echo done
-cd %PWD%
+cd %DATA%
 dos2unix -q -f 1* 2* 3* 4* 5* 6* 7* 8* 9*
 git add --ignore-errors 1* 2* 3* 4* 5* 6* 8* 9*
+cd /D %OLDDIR%
 
