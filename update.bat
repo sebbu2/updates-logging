@@ -19,6 +19,7 @@ call scoop list > %DATA%\4b-scoop.txt
 echo 5 winget
 winget --version > %DATA%\5-winget.txt
 winget list > %DATA%\5b-winget.txt
+powershell "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -FilePath %DATA%\5c-winget_packages_$env:COMPUTERNAME.txt"
 echo 6 windows (system)
 ver > %DATA%\6-windows.txt
 call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\6b-windows-update.txt
