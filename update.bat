@@ -23,8 +23,8 @@ powershell "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -Fi
 echo 6 windows (system)
 ver > %DATA%\6-windows.txt
 call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\6b-windows-update.txt
-rem echo 7 microsoft store
-rem 7 microsoft store
+echo 7 microsoft store
+call powershell.exe -NoProfile "Get-AppxPackage -AllUsers | Select -Property Name | Sort -Property Name" > %DATA%\7-microsoft-store.txt
 echo 8 fossil
 fossil version > %DATA%\8-fossil.txt
 fossil all list > %DATA%\8b-fossil.txt
@@ -49,6 +49,7 @@ pipx --version > %DATA%\14-pipx.txt 2>&1
 pipx list --include-injected -v > %DATA%\14b-pipx.txt 2>&1
 echo 15 conda
 call conda --version > %DATA%\15-conda.txt
+call conda info > %DATA%\15a-conda.txt
 call conda list -n base > %DATA%\15b-conda.txt
 echo 16 pip3
 C:\dev\Python38\python.exe -m pip --version > %DATA%\16-pip.txt
@@ -82,6 +83,6 @@ pwsh -command Get-Module > %DATA%\21c-pwsh.txt
 echo done
 cd %DATA%
 dos2unix -q -f 1* 2* 3* 4* 5* 6* 7* 8* 9*
-git add --ignore-errors 1* 2* 3* 4* 5* 6* 8* 9*
+git add --ignore-errors 1* 2* 3* 4* 5* 6* 7* 8* 9*
 cd /D %OLDDIR%
 
