@@ -22,9 +22,9 @@ winget list > %DATA%\5b-winget.txt
 powershell "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -FilePath %DATA%\5c-winget_packages_$env:COMPUTERNAME.txt"
 echo 6 windows (system)
 ver > %DATA%\6-windows.txt
-call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\6b-windows-update.txt
+gsudo call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\6b-windows-update.txt
 echo 7 microsoft store
-call powershell.exe -NoProfile "Get-AppxPackage -AllUsers | Select -Property Name | Sort -Property Name" > %DATA%\7-microsoft-store.txt
+gsudo call powershell.exe -NoProfile "Get-AppxPackage -AllUsers | Select -Property Name | Sort -Property Name" > %DATA%\7-microsoft-store.txt
 echo 8 fossil
 fossil version > %DATA%\8-fossil.txt
 fossil all list > %DATA%\8b-fossil.txt
