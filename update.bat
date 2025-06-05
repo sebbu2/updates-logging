@@ -52,9 +52,12 @@ call conda --version > %DATA%\15-conda.txt
 call conda info > %DATA%\15a-conda.txt
 call conda list -n base > %DATA%\15b-conda.txt
 echo 16 pip3
-C:\dev\Python38\python.exe -m pip --version > %DATA%\16-pip.txt
-C:\dev\Python38\python.exe -m pip list --user pip > %DATA%\16a-pip.txt
-C:\dev\Python38\python.exe -m pip list > %DATA%\16b-pip.txt
+C:\dev\Python38\python.exe -m pip --version > %DATA%\16a-pipv.txt
+C:\dev\Python38\python.exe -m pip list --user pip > %DATA%\16a-pip-lu.txt
+C:\dev\Python38\python.exe -m pip list > %DATA%\16a-pip-l.txt
+C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip --version > %DATA%\16b-pipv.txt
+C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip list --user pip > %DATA%\16b-pipv-lu.txt
+C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip list > %DATA%\16b-pip-l.txt
 echo 17 npm
 cd /D %USERPROFILE%
 call npm --version > %DATA%\17-npm.txt
