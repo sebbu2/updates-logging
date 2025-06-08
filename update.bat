@@ -56,7 +56,7 @@ C:\dev\Python38\python.exe -m pip --version > %DATA%\16a-pipv.txt
 C:\dev\Python38\python.exe -m pip list --user pip > %DATA%\16a-pip-lu.txt
 C:\dev\Python38\python.exe -m pip list > %DATA%\16a-pip-l.txt
 C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip --version > %DATA%\16b-pipv.txt
-C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip list --user pip > %DATA%\16b-pipv-lu.txt
+C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip list --user pip > %DATA%\16b-pip-lu.txt
 C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip list > %DATA%\16b-pip-l.txt
 echo 17 npm
 cd /D %USERPROFILE%
