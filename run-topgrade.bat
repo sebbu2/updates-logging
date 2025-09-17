@@ -1,6 +1,7 @@
 @echo off
-pushd "%~dp0"
+DIR2="%~dp0"
+cd /d %userprofile%
 topgrade.exe --disable wsl --disable wsl_update --disable vcpkg
 call scoop cleanup -k -a
-call mv-lnk.bat
-popd
+call %DIR2%\mv-lnk.bat
+

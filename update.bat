@@ -15,6 +15,7 @@ choco --version > %DATA%\3-choco.txt
 choco list > %DATA%\3b-choco.txt
 echo 4 scoop
 call scoop --version > %DATA%\4-scoop.txt
+call scoop bucket list > %DATA%\4a-scoop-bucket.txt
 call scoop list > %DATA%\4b-scoop.txt
 echo 5 winget
 winget --version > %DATA%\5-winget.txt
@@ -42,8 +43,11 @@ echo 12 go
 go version > %DATA%\12-go.txt
 go-global-update --dry-run > %DATA%\12b-go.txt
 echo 13 vcpkg
-vcpkg --version > %DATA%\13-vcpkg.txt
-vcpkg list --x-full-desc > %DATA%\13b-vcpkg.txt
+@where vcpkg 2>NUL
+if %ERRORLEVEL%==0 (
+	vcpkg --version > %DATA%\13-vcpkg.txt
+	vcpkg list --x-full-desc > %DATA%\13b-vcpkg.txt
+)
 echo 14 pipx
 pipx --version > %DATA%\14-pipx.txt 2>&1
 pipx list --include-injected -v > %DATA%\14b-pipx.txt 2>&1
