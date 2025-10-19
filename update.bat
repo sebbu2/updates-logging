@@ -3,36 +3,36 @@ set OLDDIR=%CD%
 cd /d "%~dp0"
 set PWD=%CD%
 set DATA=%CD%\data
-echo 1 topgrade
-topgrade --version > %DATA%\1-topgrade.txt
-echo 2 wsl
-wsl --version > %DATA%\2-wsl.txt
-type %DATA%\2-wsl.txt | iconv -t UTF-8 -f UTF-16LE > a.txt && mv a.txt %DATA%\2-wsl.txt
-wsl -l -v > %DATA%\2b-wsl.txt
-type %DATA%\2b-wsl.txt | iconv -t UTF-8 -f UTF-16LE > a.txt && mv a.txt %DATA%\2b-wsl.txt
-echo 3 choco
-choco --version > %DATA%\3-choco.txt
-choco list > %DATA%\3b-choco.txt
-echo 4 scoop
-call scoop --version > %DATA%\4-scoop.txt
-call scoop bucket list > %DATA%\4a-scoop-bucket.txt
-call scoop list > %DATA%\4b-scoop.txt
-echo 5 winget
-winget --version > %DATA%\5-winget.txt
-winget list > %DATA%\5b-winget.txt
-powershell "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -FilePath %DATA%\5c-winget_packages_$env:COMPUTERNAME.txt"
-echo 6 windows (system)
-ver > %DATA%\6-windows.txt
-gsudo call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\6b-windows-update.txt
-echo 7 microsoft store
-gsudo call powershell.exe -NoProfile "Get-AppxPackage -AllUsers | Select -Property Name | Sort -Property Name" > %DATA%\7-microsoft-store.txt
-echo 8 fossil
-fossil version > %DATA%\8-fossil.txt
-fossil all list > %DATA%\8b-fossil.txt
-echo 9 rust
-rustup --version > %DATA%\9-rustup.txt 2>&1
-rustup toolchain list > %DATA%\9b-rustup.txt
-rustup component list --installed >> %DATA%\9b-rustup.txt
+echo 01 topgrade
+topgrade --version > %DATA%\01-topgrade.txt
+echo 02 wsl
+wsl --version > %DATA%\02-wsl.txt
+type %DATA%\02-wsl.txt | iconv -t UTF-8 -f UTF-16LE > a.txt && mv a.txt %DATA%\02-wsl.txt
+wsl -l -v > %DATA%\02b-wsl.txt
+type %DATA%\02b-wsl.txt | iconv -t UTF-8 -f UTF-16LE > a.txt && mv a.txt %DATA%\02b-wsl.txt
+echo 03 choco
+choco --version > %DATA%\03-choco.txt
+choco list > %DATA%\03b-choco.txt
+echo 04 scoop
+call scoop --version > %DATA%\04-scoop.txt
+call scoop bucket list > %DATA%\04a-scoop-bucket.txt
+call scoop list > %DATA%\04b-scoop.txt
+echo 05 winget
+winget --version > %DATA%\05-winget.txt
+winget list > %DATA%\05b-winget.txt
+powershell "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -FilePath %DATA%\05c-winget_packages_$env:COMPUTERNAME.txt"
+echo 06 windows (system)
+ver > %DATA%\06-windows.txt
+gsudo call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\06b-windows-update.txt
+echo 07 microsoft store
+gsudo call powershell.exe -NoProfile "Get-AppxPackage -AllUsers | Select -Property Name | Sort -Property Name" > %DATA%\07-microsoft-store.txt
+echo 08 fossil
+fossil version > %DATA%\08-fossil.txt
+fossil all list > %DATA%\08b-fossil.txt
+echo 09 rust
+rustup --version > %DATA%\09-rustup.txt 2>&1
+rustup toolchain list > %DATA%\09b-rustup.txt
+rustup component list --installed >> %DATA%\09b-rustup.txt
 echo 10 dotnet
 dotnet --info > %DATA%\10-dotnet.txt
 dotnet-tools-outdated --outPkgRegardlessState -f json > %DATA%\10b-dotnet.txt
@@ -89,7 +89,7 @@ pwsh -command $PSVersionTable > %DATA%\21b-pwsh.txt
 pwsh -command Get-Module > %DATA%\21c-pwsh.txt
 echo done
 cd %DATA%
-dos2unix -q -f 1* 2* 3* 4* 5* 6* 7* 8* 9*
-git add --ignore-errors 1* 2* 3* 4* 5* 6* 7* 8* 9*
+dos2unix -q -f 0* 1* 2*
+git add --ignore-errors 0* 1* 2*
 cd /D %OLDDIR%
 
