@@ -43,7 +43,7 @@ echo 12 go
 go version > %DATA%\12-go.txt
 go-global-update --dry-run > %DATA%\12b-go.txt
 echo 13 vcpkg
-@where vcpkg 2>NUL
+@where vcpkg >NUL 2>&1
 if %ERRORLEVEL%==0 (
 	vcpkg --version > %DATA%\13-vcpkg.txt
 	vcpkg list --x-full-desc > %DATA%\13b-vcpkg.txt
