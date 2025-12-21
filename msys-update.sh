@@ -6,6 +6,6 @@ pacman -Qe &> ${DATA}/zz-1a-msys2-pacman-qe.txt
 pacman -Qd &> ${DATA}/zz-1b-msys2-pacman-qd.txt
 pacman -Q &> ${DATA}/zz-1c-msys2-pacman-q.txt
 gem list -l -a &> ${DATA}/zz-1d-gem-list.txt
-( cd "${DATA}" && git add zz-1* )
 dos2unix -q -f ${DATA}/zz-1*
+( cd "${DATA}" && git add zz-1* )
 
