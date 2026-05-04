@@ -44,7 +44,7 @@ go version > %DATA%\12-go.txt
 go-global-update --dry-run > %DATA%\12b-go.txt
 echo 13 vcpkg
 @where vcpkg >NUL 2>&1
-if %ERRORLEVEL%==0 (
+IF %ERRORLEVEL%==0 (
 	vcpkg --version > %DATA%\13-vcpkg.txt
 	vcpkg list --x-full-desc > %DATA%\13b-vcpkg.txt
 )
@@ -52,18 +52,28 @@ echo 14 pipx
 pipx --version > %DATA%\14-pipx.txt 2>&1
 pipx list --include-injected -v > %DATA%\14b-pipx.txt 2>&1
 echo 15 conda
-call conda --version > %DATA%\15-conda.txt
-call conda info > %DATA%\15a-conda.txt
-call conda list -n base > %DATA%\15b-conda.txt
+@where conda >NUL 2>&1
+IF %ERRORLEVEL%==0 (
+	call conda --version > %DATA%\15-conda.txt
+	call conda info > %DATA%\15a-conda.txt
+	call conda list -n base > %DATA%\15b-conda.txt
+)
 echo 16 pip3
-PY1=C:\dev\Python38\python.exe
-PY2=C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe
-%PY1% -m pip --version | dos2unix -q > %DATA%\16a-pipv.txt
-%PY1% -m pip list --user pip > %DATA%\16a-pip-lu.txt
-%PY1% -m pip list > %DATA%\16a-pip-l.txt
-%PY2% -m pip --version | dos2unix -q > %DATA%\16b-pipv.txt
-%PY2% -m pip list --user pip > %DATA%\16b-pip-lu.txt
-%PY2% -m pip list > %DATA%\16b-pip-l.txt
+rem set PY1=C:\dev\Python38\python.exe
+set PY1=C:\Users\sebbu\AppData\Local\Python\pythoncore-3.12-64\python.exe
+rem set PY2=C:\Users\sebbu\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe
+rem set PY2=C:\Users\sebbu\AppData\Local\Python\bin\python.exe
+set PY2=C:\Users\sebbu\AppData\Local\Python\pythoncore-3.14-64\python.exe
+IF EXIST "%PY1" (
+	%PY1% -m pip --version | dos2unix -q > %DATA%\16a-pipv.txt
+	%PY1% -m pip list --user pip > %DATA%\16a-pip-lu.txt
+	%PY1% -m pip list > %DATA%\16a-pip-l.txt
+)
+IF EXIST "%PY2" (
+	%PY2% -m pip --version | dos2unix -q > %DATA%\16b-pipv.txt
+	%PY2% -m pip list --user pip > %DATA%\16b-pip-lu.txt
+	%PY2% -m pip list > %DATA%\16b-pip-l.txt
+)
 echo 17 npm
 cd /D %USERPROFILE%
 call npm --version > %DATA%\17-npm.txt
