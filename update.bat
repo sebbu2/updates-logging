@@ -78,13 +78,17 @@ echo 17 npm
 cd /D %USERPROFILE%
 call npm --version > %DATA%\17-npm.txt
 call npm list > %DATA%\17a-npm.txt
+call npm config list --json > %DATA%\17b-npm-config.json
 call npm list -g > %DATA%\17b-npm.txt
+call npm config list -g --json > %DATA%\17b-npm-config.json
 cd /D %PWD%
 echo 18 pnpm
 cd /D %USERPROFILE%
 call pnpm --version > %DATA%\18-pnpm.txt
 call pnpm list > %DATA%\18a-pnpm.txt 2>&1
+call pnpm config list --json > %DATA%\18a-pnpm-config.json
 call pnpm list -g > %DATA%\18b-pnpm.txt 2>&1
+call pnpm config list -g --json > %DATA%\18b-pnpm-config.json
 cd /D %PWD%
 echo 19 github cli ext
 gh --version > %DATA%\19-gh.txt
