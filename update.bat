@@ -14,18 +14,18 @@ echo 03 choco
 choco --version > %DATA%\03-choco.txt
 choco list > %DATA%\03b-choco.txt
 echo 04 scoop
-call scoop --version > %DATA%\04-scoop.txt
-call scoop bucket list > %DATA%\04a-scoop-bucket.txt
-call scoop list > %DATA%\04b-scoop.txt
+cmd /c scoop --version > %DATA%\04-scoop.txt
+cmd /c scoop bucket list > %DATA%\04a-scoop-bucket.txt
+cmd /c scoop list > %DATA%\04b-scoop.txt
 echo 05 winget
 winget --version > %DATA%\05-winget.txt
 winget list > %DATA%\05b-winget.txt
 powershell "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -FilePath %DATA%\05c-winget_packages_$env:COMPUTERNAME.txt"
 echo 06 windows (system)
 ver > %DATA%\06-windows.txt
-gsudo call powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\06b-windows-update.txt
+gsudo cmd /c powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\06b-windows-update.txt
 echo 07 microsoft store
-gsudo call powershell.exe -NoProfile "Get-AppxPackage -AllUsers | Select -Property Name | Sort -Property Name" > %DATA%\07-microsoft-store.txt
+gsudo cmd /c powershell.exe -NoProfile "Get-AppxPackage -AllUsers | Select -Property Name | Sort -Property Name" > %DATA%\07-microsoft-store.txt
 echo 08 fossil
 fossil version > %DATA%\08-fossil.txt
 fossil all list > %DATA%\08b-fossil.txt
@@ -54,9 +54,9 @@ pipx list --include-injected -v > %DATA%\14b-pipx.txt 2>&1
 echo 15 conda
 @where conda >NUL 2>&1
 IF %ERRORLEVEL%==0 (
-	call conda --version > %DATA%\15-conda.txt
-	call conda info > %DATA%\15a-conda.txt
-	call conda list -n base > %DATA%\15b-conda.txt
+	cmd /c conda --version > %DATA%\15-conda.txt
+	cmd /c conda info > %DATA%\15a-conda.txt
+	cmd /c conda list -n base > %DATA%\15b-conda.txt
 )
 echo 16 pip3
 rem set PY1=C:\dev\Python38\python.exe
@@ -76,19 +76,19 @@ IF EXIST "%PY2" (
 )
 echo 17 npm
 cd /D %USERPROFILE%
-call npm --version > %DATA%\17-npm.txt
-call npm list > %DATA%\17a-npm.txt
-call npm config list --json > %DATA%\17b-npm-config.json
-call npm list -g > %DATA%\17b-npm.txt
-call npm config list -g --json > %DATA%\17b-npm-config.json
+cmd /c npm --version > %DATA%\17-npm.txt
+cmd /c npm list > %DATA%\17a-npm.txt
+cmd /c npm config list --json > %DATA%\17b-npm-config.json
+cmd /c npm list -g > %DATA%\17b-npm.txt
+cmd /c npm config list -g --json > %DATA%\17b-npm-config.json
 cd /D %PWD%
 echo 18 pnpm
 cd /D %USERPROFILE%
-call pnpm --version > %DATA%\18-pnpm.txt
-call pnpm list > %DATA%\18a-pnpm.txt 2>&1
-call pnpm config list --json > %DATA%\18a-pnpm-config.json
-call pnpm list -g > %DATA%\18b-pnpm.txt 2>&1
-call pnpm config list -g --json > %DATA%\18b-pnpm-config.json
+cmd /c pnpm --version > %DATA%\18-pnpm.txt
+cmd /c pnpm list > %DATA%\18a-pnpm.txt 2>&1
+cmd /c pnpm config list --json > %DATA%\18a-pnpm-config.json
+cmd /c pnpm list -g > %DATA%\18b-pnpm.txt 2>&1
+cmd /c pnpm config list -g --json > %DATA%\18b-pnpm-config.json
 cd /D %PWD%
 echo 19 github cli ext
 gh --version > %DATA%\19-gh.txt
