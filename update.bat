@@ -20,7 +20,7 @@ cmd /c scoop list > %DATA%\04b-scoop.txt
 echo 05 winget
 winget --version > %DATA%\05-winget.txt
 winget list > %DATA%\05b-winget.txt
-powershell "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -FilePath %DATA%\05c-winget_packages_$env:COMPUTERNAME.txt"
+pwsh -command "Get-WinGetPackage | Format-Table -AutoSize | Out-File -Width 500 -FilePath %DATA%\05c-winget_packages_$env:COMPUTERNAME.txt"
 echo 06 windows (system)
 ver > %DATA%\06-windows.txt
 gsudo cmd /c powershell.exe -NoProfile "Get-WindowsUpdate -IsInstalled | Format-Table -AutoSize -Wrap" > %DATA%\06b-windows-update.txt
