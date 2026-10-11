@@ -10,3 +10,4 @@ cmd /c git fp
 popd
 del /F /S /Q C:\Users\sebbu\scoop\persist\vcpkg\buildtrees\*
 del /F /Q C:\Users\sebbu\scoop\persist\vcpkg\downloads\*.*
+
