@@ -1,3 +1,3 @@
 @echo off
-cargo --version > %DATA%\11-cargo.txt
-cargo install --list > %DATA%\11b-cargo.txt
+cargo --version > %DATA%\cargo.txt
+cargo install --list > %DATA%\cargo-l.txt

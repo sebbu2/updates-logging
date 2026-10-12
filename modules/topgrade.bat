@@ -1,2 +1,2 @@
 @echo off
-topgrade --version > %DATA%\01-topgrade.txt
+topgrade --version > %DATA%\topgrade.txt

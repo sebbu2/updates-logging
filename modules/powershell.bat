@@ -1,5 +1,5 @@
 @echo off
-powershell $PSVersionTable > %DATA%\21-powershell.txt
-powershell Get-Module > %DATA%\21a-powershell.txt
-pwsh -command $PSVersionTable > %DATA%\21b-pwsh.txt
-pwsh -command Get-Module > %DATA%\21c-pwsh.txt
+powershell $PSVersionTable > %DATA%\powershell.txt
+powershell Get-Module > %DATA%\powershell-l.txt
+pwsh -command $PSVersionTable > %DATA%\pwsh.txt
+pwsh -command Get-Module > %DATA%\pwsh-l.txt

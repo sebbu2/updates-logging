@@ -1,3 +1,3 @@
 @echo off
-choco --version > %DATA%\03-choco.txt
-choco list > %DATA%\03b-choco.txt
+choco --version > %DATA%\choco.txt
+choco list > %DATA%\choco-l.txt
