@@ -55,7 +55,8 @@ cmd /c %MODULES%\yarn.bat
 echo 21 pnpm
 cmd /c %MODULES%\pnpm.bat
 echo 22 containers
-cmd /C %MODULES%\containers.bat
+rem cmd /c %MODULES%\containers.bat
+cmd /c %MODULES%\docker.bat
 echo 23 composer
 cmd /c %MODULES%\composer.bat
 echo 24 ruby
