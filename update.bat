@@ -76,6 +76,9 @@ echo perl
 cmd /c %MODULES%\perl.bat
 echo done
 cd %DATA%
+icacls .. /setowner sebbu /T /C /L /Q
+icacls .. /grant sebbu:F /T /C /L /Q
 dos2unix -q -f *.txt *.json
 git add --ignore-errors *.txt *.json
 cd /D %OLDDIR%
+
